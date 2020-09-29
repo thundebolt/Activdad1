@@ -44,22 +44,22 @@ public class Generar_registro extends AppCompatActivity {
         spinner.setAdapter(adaptador2);
 
         //Datos nombre , apellidos,rating,edad.
-            final ArrayList<String> datos = new ArrayList<>();
-           final ArrayAdapter<String> datosr =
-                   new ArrayAdapter<String>(Generar_registro.this,android.R.layout.simple_list_item_1,datos);
 
-           //boton guardar datosss
-            btn_agregar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    datos.add(txt_name.getText().toString());
-                    datos.add(txt_apellido.getText().toString());
-                    datos.add(Float.toString(rating.getRating()));
-                    datos.add(Boolean.toString(check_si.isChecked()));
-                    datos.add(Boolean.toString(check_no.isChecked()));
-                    Toast.makeText(Generar_registro.this,"Registro guardado",Toast.LENGTH_LONG).show();
+        final ArrayList<String> datos = new ArrayList<>();
+        final ArrayAdapter<String> datosr =
+                new ArrayAdapter<String>(Generar_registro.this, android.R.layout.simple_list_item_1, datos);
 
-                }
-            });
-    }
-}
+        //boton guardar datosss
+        btn_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datos.add(txt_name.getText().toString());
+                datos.add(txt_apellido.getText().toString());
+                datos.add(Float.toString(rating.getRating()));
+                datos.add(Boolean.toString(check_si.isChecked()));
+                datos.add(Boolean.toString(check_no.isChecked()));
+                Toast.makeText(Generar_registro.this, "Registro guardado", Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }}
