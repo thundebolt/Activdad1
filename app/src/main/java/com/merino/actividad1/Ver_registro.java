@@ -1,5 +1,6 @@
 package com.merino.actividad1;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,7 +9,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class Ver_registro extends Generar_registro{
+public class Ver_registro extends AppCompatActivity {
     RecyclerView recycler;
 
     @Override
@@ -20,15 +21,7 @@ public class Ver_registro extends Generar_registro{
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<String> datos = new ArrayList<>();
-        datos.add(txt_name.getText().toString());
-        datos.add(txt_apellido.getText().toString());
-        datos.add(Float.toString(rating.getRating()));
-        datos.add(Boolean.toString(check_si.isChecked()));
-        datos.add(Boolean.toString(check_no.isChecked()));
 
-
-        adaptador adaptadrr =  new adaptador(datos);
-        recycler.setAdapter(adaptadrr);
 
     }
 }

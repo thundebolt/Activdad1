@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class Generar_registro extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
 
 
-        ArrayList<String> ciudades = new ArrayList<>();
+        final ArrayList<String> ciudades = new ArrayList<>();
         ciudades.add("Santiago");
         ciudades.add("Concepcion");
         ciudades.add("Temuco");
@@ -42,6 +43,11 @@ public class Generar_registro extends AppCompatActivity {
         ArrayAdapter<String> adaptador2 = new ArrayAdapter<>(Generar_registro.this ,
                 android.R.layout.simple_spinner_item,ciudades);
         spinner.setAdapter(adaptador2);
+
+
+
+
+
 
         //Datos nombre , apellidos,rating,edad.
 
@@ -53,13 +59,41 @@ public class Generar_registro extends AppCompatActivity {
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datos.add(txt_name.getText().toString());
-                datos.add(txt_apellido.getText().toString());
+                if (view.getId()==R.id.btn_agregar){
+                    validar();
+                }
+                datos.add(txt_name.getText().toString().trim());
+                datos.add(txt_apellido.getText().toString().trim());
                 datos.add(Float.toString(rating.getRating()));
                 datos.add(Boolean.toString(check_si.isChecked()));
-                datos.add(Boolean.toString(check_no.isChecked()));
+
+
+
+
                 Toast.makeText(Generar_registro.this, "Registro guardado", Toast.LENGTH_LONG).show();
 
+                // verificar datos
+                //Toast.makeText(Generar_registro.this, datos.toString(), Toast.LENGTH_LONG).show();
+
+
+
             }
+
+            private void validar() {
+                String cad="seleccionado edad";
+
+                if (check_si.isChecked()==true){
+                    cad+="eres mayor a 18";
+                }
+                if (check_no.isChecked()){
+                    cad+="eres menor de edad";
+                }
+            }
+
+
+
         });
+
+
+
     }}
