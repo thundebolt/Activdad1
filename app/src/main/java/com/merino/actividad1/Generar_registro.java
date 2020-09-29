@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -17,10 +16,12 @@ import java.util.ArrayList;
 
 public class Generar_registro extends AppCompatActivity {
     Button btn_agregar;
-    EditText txt_name,txt_apellido;
-    CheckBox check_si ,check_no;
+     EditText txt_name, txt_apellido;
+    CheckBox check_si, check_no;
     RatingBar rating;
     Spinner spinner;
+    static ArrayList<registro_datos> listaregistro = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,7 @@ public class Generar_registro extends AppCompatActivity {
 
         //Datos nombre , apellidos,rating,edad.
 
-        final ArrayList<String> datos = new ArrayList<>();
-        final ArrayAdapter<String> datosr =
-                new ArrayAdapter<String>(Generar_registro.this, android.R.layout.simple_list_item_1, datos);
+
 
         //boton guardar datosss
         btn_agregar.setOnClickListener(new View.OnClickListener() {
@@ -62,13 +61,12 @@ public class Generar_registro extends AppCompatActivity {
                 if (view.getId()==R.id.btn_agregar){
                     validar();
                 }
-                datos.add(txt_name.getText().toString().trim());
-                datos.add(txt_apellido.getText().toString().trim());
-                datos.add(Float.toString(rating.getRating()));
-                datos.add(Boolean.toString(check_si.isChecked()));
-
-
-
+                String nombre = txt_name.getText().toString().trim();
+               String apellido = txt_apellido.getText().toString().trim();
+                String valoracion = Float.toString(rating.getRating());
+                String check  = Boolean.toString(check_si.isChecked());
+                registro_datos datos = new registro_datos(nombre,apellido,check,valoracion);
+                listaregistro.add(datos);
 
                 Toast.makeText(Generar_registro.this, "Registro guardado", Toast.LENGTH_LONG).show();
 

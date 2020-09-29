@@ -7,33 +7,40 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import android.content.Context;
 
 import java.util.ArrayList;
 
 public class adaptador extends RecyclerView.Adapter<adaptador.ViewHolderDatos>{
-    ArrayList<String>listadatos;
+    ArrayList<registro_datos>listaregistro;
 
-    public adaptador(ArrayList<String> listadatos) {
-        this.listadatos = listadatos;
+
+    public adaptador(Ver_registro ver_registro, ArrayList<registro_datos> listaregistro) {
+        this.listaregistro = listaregistro;
     }
 
     @NonNull
     @Override
-    public adaptador.ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view =
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.actividad_datos,null,false);
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.actividad_datos,parent ,false);
         return new ViewHolderDatos(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull adaptador.ViewHolderDatos holder, int position) {
-    holder.datosasignados(listadatos.get(position));
+
+        holder.text.setText(listaregistro.get(position).getNombre());
+        holder.text.setText(listaregistro.get(position).getApellido());
+        holder.text.setText(listaregistro.get(position).getValoracion());
+        holder.text.setText(listaregistro.get(position).getCheck());
+
     }
 
     @Override
     public int getItemCount() {
-        return listadatos.size() ;
+        return listaregistro.size() ;
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
@@ -41,10 +48,6 @@ public class adaptador extends RecyclerView.Adapter<adaptador.ViewHolderDatos>{
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             text = itemView.findViewById(R.id.text);
-        }
-
-        public void datosasignados(String s) {
-            text.setText(s);
         }
     }
 }

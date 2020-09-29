@@ -17,11 +17,9 @@ public class Ver_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_registro);
         recycler = findViewById(R.id.recycler);
-
         recycler.setLayoutManager(new LinearLayoutManager(this));
-
-        ArrayList<String> datos = new ArrayList<>();
-
+        adaptador adapter = new adaptador(this, Generar_registro.listaregistro);
+        recycler.setAdapter(adapter);
 
     }
 }
