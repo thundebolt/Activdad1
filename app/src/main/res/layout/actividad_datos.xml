@@ -87,11 +87,14 @@
         android:id="@+id/txtno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:text="TextView"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="287dp"
-        tools:layout_editor_absoluteY="200dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toEndOf="@+id/txtcheck"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
