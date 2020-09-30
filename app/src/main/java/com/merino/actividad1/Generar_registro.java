@@ -65,7 +65,8 @@ public class Generar_registro extends AppCompatActivity {
                String apellido = txt_apellido.getText().toString().trim();
                 String valoracion = Float.toString(rating.getRating());
                 String check  = Boolean.toString(check_si.isChecked());
-                registro_datos datos = new registro_datos(nombre,apellido,check,valoracion);
+                String checks = Boolean.toString(check_no.isChecked());
+                registro_datos datos = new registro_datos(nombre,apellido,check,valoracion,checks);
                 listaregistro.add(datos);
 
                 Toast.makeText(Generar_registro.this, "Registro guardado", Toast.LENGTH_LONG).show();

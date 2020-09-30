@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Context;
 
 import java.util.ArrayList;
 
@@ -31,10 +30,11 @@ public class adaptador extends RecyclerView.Adapter<adaptador.ViewHolderDatos>{
     @Override
     public void onBindViewHolder(@NonNull adaptador.ViewHolderDatos holder, int position) {
 
-        holder.text.setText(listaregistro.get(position).getNombre());
-        holder.text.setText(listaregistro.get(position).getApellido());
-        holder.text.setText(listaregistro.get(position).getValoracion());
-        holder.text.setText(listaregistro.get(position).getCheck());
+        holder.txtnombre.setText(listaregistro.get(position).getNombre());
+        holder.txtapellido.setText(listaregistro.get(position).getApellido());
+        holder.txtvaloracion.setText(listaregistro.get(position).getValoracion());
+        holder.txtcheck.setText(listaregistro.get(position).getCheck());
+        holder.txtno.setText(listaregistro.get(position).getChecks());
 
     }
 
@@ -44,10 +44,16 @@ public class adaptador extends RecyclerView.Adapter<adaptador.ViewHolderDatos>{
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView text;
+        TextView txtapellido,txtnombre,txtcheck,txtvaloracion,txtno;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            text = itemView.findViewById(R.id.text);
+            txtnombre = itemView.findViewById(R.id.txtnombre);
+            txtapellido = itemView.findViewById(R.id.txtapellido);
+            txtcheck = itemView.findViewById(R.id.txtcheck);
+            txtvaloracion = itemView.findViewById(R.id.txtvaloracion);
+            txtno = itemView.findViewById(R.id.txtno);
+
+
         }
     }
 }

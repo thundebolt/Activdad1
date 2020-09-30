@@ -6,8 +6,17 @@ public class registro_datos {
     String apellido;
     String check;
     String valoracion;
+    String checks;
 
-    public registro_datos(String nombre, String apellido , String check, String valoracion){
+    public String getChecks() {
+        return checks;
+    }
+
+    public void setChecks(String checks) {
+        this.checks = checks;
+    }
+
+    public registro_datos(String nombre, String apellido , String check, String valoracion, String checks){
         this.nombre = nombre;
         this.apellido = apellido;
         this.check  = check;
